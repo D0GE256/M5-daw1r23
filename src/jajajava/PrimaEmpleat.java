@@ -13,40 +13,49 @@ public class PrimaEmpleat {
     private String nom;
     private String directiu;
     private int antiguitat;
+    private static int prima1 = 600;
+    private static int prima2 = 400;
+    private static int prima3 = 150;
+    private static int prima4 = 100;
 
     public static void main(String[] args) {
-
         PrimaEmpleat e = new PrimaEmpleat("Elvira", "S", 11);
-        int p = 0;
-        if (e.antiguitat >= 0 && e.antiguitat < 1000) {
-            if (e.directiu == "S") {
-                if (e.antiguitat > 12) {
-                    p = 600;
-                } else {
-                    p = 400;
-                }
-            } else if (e.directiu == "N") {
-                if (e.antiguitat > 12) {
-                    p = 150;
-                } else {
-                    p = 100;
-                }
-            } else {
-                System.out.println("El codi del càrrec ha de ser 'S' o'N'");
-            }
-            if (p != 0) {
-                System.out.println("La prima que li correspon a " + e.nom
-                        + " és de " + p + " Euros");
-            }
-        } else {
-            System.out.println("La antiguitat ha de ser un nombre entre 0 i 999");
-        }
-        
+        PrintPrimaEmpleat(e);
     }
 
     public PrimaEmpleat(String nome, String dire, int ante) {
         this.nom = nome;
         this.directiu = dire;
         this.antiguitat = ante;
+    }
+
+    public static void PrintPrimaEmpleat(PrimaEmpleat e) {
+        String errorSN = "El codi del càrrec ha de ser 'S' o 'N'";
+        String errorAnt = "La antiguitat ha de ser un nombre entre 0 i 999";
+        int p = 0;
+        
+        if (e.antiguitat >= 0 && e.antiguitat < 1000) {
+            if ("S".equals(e.directiu)) {
+                if (e.antiguitat > 12) {
+                    p = prima1;
+                } else {
+                    p = prima2;
+                }
+            } else if ("N".equals(e.directiu)) {
+                if (e.antiguitat > 12) {
+                    p = prima3;
+                } else {
+                    p = prima4;
+                }
+            } else {
+                System.out.println(errorSN);
+            }
+            if (p != 0) {
+                System.out.println("La prima que li correspon a " + e.nom
+                        + " és de " + p + " Euros");
+            }
+        } else {
+            System.out.println(errorAnt);
+        }
     }
 }
