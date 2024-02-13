@@ -32,15 +32,16 @@ public class PrimaEmpleat {
                     p = 100;
                 }
             } else {
-                System.out.println("El codi del càrrec ha de ser 'S' o 								'N'");
+                System.out.println("El codi del càrrec ha de ser 'S' o'N'");
             }
             if (p != 0) {
                 System.out.println("La prima que li correspon a " + e.nom
                         + " és de " + p + " Euros");
             }
         } else {
-            System.out.println("La antiguitat ha de ser un nombre entre 0 i 							999");
+            System.out.println("La antiguitat ha de ser un nombre entre 0 i 999");
         }
+        
     }
 
     public PrimaEmpleat(String nome, String dire, int ante) {
